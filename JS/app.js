@@ -16,11 +16,11 @@ function addTask(){
 
     if (taskValue === "") return;
     
-    if(editTaskId !== null){
-        let task = state.tasks.find(t => t.id == editTaskId)
+    if(state.editTaskId !== null){
+        let task = state.tasks.find(t => t.id == state.editTaskId)
         task.task = taskValue;
 
-        editTaskId = null;
+        state.editTaskId = null;
         addBtn.innerText = "Add";
     }else{
         let taskObj = {id:Date.now(), task:taskValue, completed:false}
